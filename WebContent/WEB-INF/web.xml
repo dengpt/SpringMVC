@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>SpringMVC</display-name>
+  <servlet>
+  	<!-- 配置DispatcherServlet -->
+  	<servlet-name>SpringMVC</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	<!-- 指定spring mvc配置文件位置 不指定使用默认情况 -->
+  		<init-param>
+  			<param-name>contextConfigLocation</param-name>
+  			<param-value>/WEB-INF/springmvc-servlet.xml</param-value>
+  			<!-- 默认:/WEB-INF/<servlet-name>-servlet.xml
+  			classpath方式:<param-value>classpath:/spring-xml/*.xml</param-value>
+  			 -->
+  		</init-param>
+  		<!-- 设置启动顺序 -->
+  		<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <!-- 配置映射 servlet-name和DispatcherServlet的servlet一致 -->
+  <servlet-mapping>
+  	<servlet-name>SpringMVC</servlet-name>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
