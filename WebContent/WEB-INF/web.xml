@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>SpringMVC</display-name>
+  
+  <!-- 配置Spring -->
+  <context-param>
+  	<param-name>contextConfigLocation</param-name>
+  	<param-value>/WEB-INF/applicationContext.xml</param-value>
+  </context-param>
+  <listener>org.springframework.web.context.ContextLoaderListener</listener>
   <servlet>
   	<!-- 配置DispatcherServlet -->
   	<servlet-name>SpringMVC</servlet-name>
@@ -23,6 +30,16 @@
   	<url-pattern>/</url-pattern>
   </servlet-mapping>
   
+  <!-- Log4j配置 -->
+ <context-param>
+  <param-name>log4jConfigLocation</param-name>
+  <param-value>classpath:/log4j/log4j.xml</param-value>
+ </context-param>
+ <!-- 加载log4j配置文件 -->
+ <listener>
+  <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+ </listener>
+ 
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
