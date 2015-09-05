@@ -10,21 +10,19 @@
         <result property="userPassword" column="user_password"/>  
     </resultMap>
      
-	<select id="getUser" parameterType="String" resultType="com.springmvc.domain.UserEntity" resultMap="userResultMap">  
+	<select id="getUser" parameterType="String" resultType="com.springmvc.domain.UserEntity" >  
         <![CDATA[ 
             SELECT * FROM MYUSER
-			WHERE ID =  #{userID}
+			WHERE ID =  #{id}
         ]]>   
     </select>
     
-    <insert id="insertUser" parameterType="com.entity.UserEntity">
-            INSERT INTO MYUSER(ID,PWD,NAME,BIRTHDAY,SALARY)
+    <insert id="insertUser" parameterType="com.springmvc.domain.UserEntity">
+            INSERT INTO MYUSER(ID,user_name,user_password)
              VALUES(
-             	#{userID},
-             	#{userPWD},
+             	#{id},
              	#{userName},
-             	#{userBirthday},
-             	#{userSalary}
+             	#{userPassword}
              )
     </insert>
 

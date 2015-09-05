@@ -7,7 +7,9 @@
   	<param-name>contextConfigLocation</param-name>
   	<param-value>/WEB-INF/applicationContext.xml</param-value>
   </context-param>
-  <listener>org.springframework.web.context.ContextLoaderListener</listener>
+  <listener>
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
   <servlet>
   	<!-- 配置DispatcherServlet -->
   	<servlet-name>SpringMVC</servlet-name>
