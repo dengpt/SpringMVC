@@ -1,0 +1,9 @@
+CREATE
+    TABLE myuser
+    (
+        ID VARCHAR(20) NOT NULL,
+        USER_NAME VARCHAR(20),
+        USER_PASSWORD VARCHAR(20),
+        PRIMARY KEY USING BTREE (ID)
+    )
+    ENGINE=InnoDB DEFAULT CHARSET=utf8
