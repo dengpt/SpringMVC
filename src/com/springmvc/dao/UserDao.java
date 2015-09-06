@@ -2,7 +2,10 @@ package com.springmvc.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.springmvc.domain.UserEntity;
+
 
 public interface UserDao {
 

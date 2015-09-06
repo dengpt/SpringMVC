@@ -28,12 +28,6 @@
         <property name="initialPoolSize" value="${c3p0.pool.size.ini}" />
         <property name="acquireIncrement" value="${c3p0.pool.size.increment}" />
     </bean>
-    <!-- sessionFactory 将spring和mybatis整合 -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-    	<property name="dataSource" ref="dataSource"/>
-    	<property name="configLocation" value="classpath:mybatis/sqlMapConfig.xml"/>
-    	<property name="mapperLocations" value="classpath:com/springmvc/mapper/*.xml"/>
-    </bean><!-- 加载mapper文件 -->
     
     <!-- 事务 -->
     <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -43,4 +37,5 @@
     <!-- 可通过注解控制事务 -->  
     <tx:annotation-driven transaction-manager="txManager"/>
     
+    <import resource="classpath:/mybatis/sqlMapConfig.xml" />
  </beans>

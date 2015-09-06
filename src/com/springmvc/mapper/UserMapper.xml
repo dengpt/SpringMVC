@@ -17,6 +17,13 @@
         ]]>   
     </select>
     
+    <select id="getAllUser" resultMap="userResultMap" >  
+        <![CDATA[ 
+            SELECT * FROM MYUSER
+			
+        ]]>   
+    </select>
+    
     <insert id="insertUser" parameterType="com.springmvc.domain.UserEntity">
             INSERT INTO MYUSER(ID,user_name,user_password)
              VALUES(
